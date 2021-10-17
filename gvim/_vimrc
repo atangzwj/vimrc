@@ -1,0 +1,110 @@
+
+" Set tab width to 3 spaces
+set tabstop=3
+set shiftwidth=3
+set expandtab " Replace tab with spaces
+
+" Set ruler
+set ruler
+
+" Set autoindent on
+set ai
+
+" Set syntax highlighting on
+syntax on
+
+" Set cursor line
+set cul
+
+" Key maps
+" Search word under cursor and highlight all matches
+map <F2> :set hlsearch/N
+
+" Toggle search highlighting
+map <expr> <F3> (&hls && v:hlsearch ? ':nohls' : ':set hls')
+
+" Toggle line numbers
+map <expr> <F4> (&nu ? ':set nonu' : ':set nu')
+
+" Toggle 80 character line
+map <expr> <F5> ((&colorcolumn==81) ? ':set cc=' : ':set cc=81')
+
+" Show trailing whitespace
+map <F6> :set hlsearch/\s\+$
+
+" Remove trailing whitespace
+map <F7> :%s/\s\+$//g
+
+" Insert single character
+nnoremap <Space> i_<Esc>r
+
+" Switch between tabs
+nnoremap <Leader>1 1gt
+nnoremap <Leader>2 2gt
+nnoremap <Leader>3 3gt
+nnoremap <Leader>4 4gt
+nnoremap <Leader>5 5gt
+nnoremap <Leader>6 6gt
+nnoremap <Leader>7 7gt
+nnoremap <Leader>8 8gt
+nnoremap <Leader>9 9gt
+
+" Remap navigation to left hand
+"noremap q h
+"noremap Q H
+"noremap h x
+"noremap H X
+"noremap x l
+"noremap X L
+"noremap l q
+"noremap L Q
+
+" Set text font to Consolas
+set guifont=Consolas
+
+" Configure backspace behavior
+set backspace=2
+
+" Set colorscheme
+colo torte
+"colo koehler
+
+" Configure cursor
+"   Default colorscheme cursor settings
+"     highlight Cursor guifg=white guibg=black
+"     highlight iCursor guifg=white guibg=steelblue
+"   Torte colorscheme cursor settings
+highlight Cursor guifg=black guibg=gray
+highlight iCursor guifg=white guibg=steelblue
+
+" Set highlighting color
+highlight Search guifg=Black guibg=Yellow gui=bold
+
+set guicursor=n-v-c:block-Cursor
+set guicursor+=i:ver100-iCursor
+set guicursor+=n-v-c:blinkon0
+set guicursor+=i:blinkon0 
+
+" Configure GUI
+set guioptions-=m  " Remove menu bar
+set guioptions-=T  " Remove toolbar
+set guioptions-=r  " Remove right-hand scroll bar
+set guioptions-=L  " Remove left-hand scroll bar
+
+" Disable mouse clicks
+set mouse=c
+
+" Configure netrw
+let g:netrw_banner = 0       " Remove banner
+let g:netrw_winsize = 25     " Set browser width to 25% of page
+"let g:netrw_browse_split = 4 " Open file in previous window
+let g:netrw_altv = 1         " Split left when entering directory with v
+let g:netrw_alto = 1         " Split down when entering directory with o
+"augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * Vexplore
+"   autocmd GUIEnter * set columns=100
+"augroup END
+
+" Tab-completion behavior
+set wildmode=longest,list,full
